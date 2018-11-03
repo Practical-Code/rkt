@@ -95,10 +95,16 @@ sudo emerge rkt
 
 ## NixOS
 
-rkt can be installed on NixOS using the following command:
+On NixOS enable rkt by adding the following line in `/etc/nixos/configuration.nix`:
 
 ```
-nix-env -iA rkt
+virtualisation.rkt.enable = true;
+```
+
+Using the nix package manager on another OS you can use:
+
+```
+nix-env -iA nixpkgs.rkt
 ```
 
 The source for the rkt.nix expression can be found on [GitHub][rkt-nixos]
@@ -141,19 +147,19 @@ upgrade manually.
 ### rpm-based 
 ```
 gpg --recv-key 18AD5014C99EF7E3BA5F6CE950BDD3E0FC8A365E
-wget https://github.com/rkt/rkt/releases/download/v1.29.0/rkt-1.29.0-1.x86_64.rpm
-wget https://github.com/rkt/rkt/releases/download/v1.29.0/rkt-1.29.0-1.x86_64.rpm.asc
-gpg --verify rkt-1.29.0-1.x86_64.rpm.asc
-sudo rpm -Uvh rkt-1.29.0-1.x86_64.rpm
+wget https://github.com/rkt/rkt/releases/download/v1.30.0/rkt-1.30.0-1.x86_64.rpm
+wget https://github.com/rkt/rkt/releases/download/v1.30.0/rkt-1.30.0-1.x86_64.rpm.asc
+gpg --verify rkt-1.30.0-1.x86_64.rpm.asc
+sudo rpm -Uvh rkt-1.30.0-1.x86_64.rpm
 ```
 
 ### deb-based
 ```
 gpg --recv-key 18AD5014C99EF7E3BA5F6CE950BDD3E0FC8A365E
-wget https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb
-wget https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb.asc
-gpg --verify rkt_1.29.0-1_amd64.deb.asc
-sudo dpkg -i rkt_1.29.0-1_amd64.deb
+wget https://github.com/rkt/rkt/releases/download/v1.30.0/rkt_1.30.0-1_amd64.deb
+wget https://github.com/rkt/rkt/releases/download/v1.30.0/rkt_1.30.0-1_amd64.deb.asc
+gpg --verify rkt_1.30.0-1_amd64.deb.asc
+sudo dpkg -i rkt_1.30.0-1_amd64.deb
 ```
 
 [cl-install-rkt]: install-rkt-in-coreos.md
